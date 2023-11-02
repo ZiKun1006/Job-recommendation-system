@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e4db08e2-cc33-4cb9-970a-4643e0a80df9/resourceGroups/fyp1/providers/Microsoft.Web/sites/job-recommendation-system",
+    "appService.deploySubpath": "."
+}
