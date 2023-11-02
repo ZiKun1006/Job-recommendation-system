@@ -1,0 +1,31 @@
+{% extends "user_navbar.html" %}
+
+{% block body %}
+<div class="backgrounds">
+    <div class="boxes">
+        <table class ="tables">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Company Name</th>
+                    <th>Title</th> 
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in reviews %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{review.company}}</td>
+                    <td>{{review.head}}</td>
+                    <td>{{review.creation_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button">
+            <a href='{% url "user_homepage" %}'> BACK </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

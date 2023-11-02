@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-User</title>
+    <link rel="stylesheet" href="/static/css/style10.css">
+  </head>
+
+  <body>
+    <div class="background">
+        <div class="box">
+          <a class="exit" href='{% url "user_profile" %}'>&times;</a>
+          <h1>Update Profile</h1>
+          <div class="btn">
+            <div id="select"></div>
+            <button type="button" class="toggle-btn" onclick="information()">For User Information</button>
+            <button type="button" class="toggle-btn" onclick="resume()">For User Resume</button>
+          </div>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="input" id="for-user-info">
+              <label for = "name"><b>Company Name:</b></label>
+              <div class="field">
+                <input type="text" placeholder="Enter Company Name" name="name" id="name" value='{{user.name}}' disabled>
+              </div>
+  
+              <label for = "email"><b>Date of Birth:</b></label>
+              <div class="field">
+                <input type="text" placeholder="" name="email" id="email" value='{{user.dob}}' disabled>
+              </div>
+
+              <label for = "gender"><b>Gender:</b></label>
+              <div class="field">
+                <input type="text" placeholder="" name="gender" id="gender" value='{{user.gender}}' disabled>
+              </div>
+
+              <label for = "phone"><b>Phone Number:</b></label>
+              <div class="field">
+                <input type="tel" placeholder="Enter Email" name="phone" id="phone" value='{{user.phone}}' required/>
+              </div>
+
+              <label for = "email"><b>Email Address:</b></label>
+              <div class="field">
+                <input type="text" placeholder="Enter Email" name="email" id="email" value='{{user.email}}' required/>
+              </div>
+  
+              <div class="button">
+                <button type="submit" class="color" name="info-update">UPDATE</button>
+              </div>
+            </div>
+          </form>
+  
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input" id="for-user-resume">
+              <label for = "resume"><b>Resume Uploaded:</b><p style="margin-top:2px;">{{user.resume}}</p></label>
+              <div class="field">
+                <input type="file" name="resume" required/>
+              </div>
+  
+              <div class="button">
+                <button type="submit" class="color" name="file-update">UPDATE</button>      
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </body>
+
+    <script>
+        var a = document.getElementById("for-user-resume")
+        var b = document.getElementById("for-user-info")
+        var c = document.getElementById("select")
+
+        function information(){
+            a.style.left="-450px";
+            b.style.left="50px";
+            c.style.left="0px";
+        }
+
+        function resume(){
+            a.style.left="50px";
+            b.style.left="450px";
+            c.style.left="195px";
+        }
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login-employees</title>
+        <link rel="stylesheet" href="/static/css/style3.css">
+    </head>
+
+    <body>
+
+        <div class="background">
+            <div class="frontground">
+                <img src="/static/images/lock.jpg" alt="lock" />
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="title"><strong>Reset Password</strong></div>
+                    <br>
+                    <div class="content">
+                    </div>
+                    <div style="color:orangered; margin-left:10%">
+                        {% for message in messages %}
+                        <h5>{{message}}</h5>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <label for="email" style="margin-top:2%">Email Address</label><br>
+                    <input type="email" class="input" placeholder="Please Enter Your Email" name="email" id="email" required/>
+                    <div class="return">
+                        <p>Return to <a href='{% url "home"%}' style="text-decoration: none;font-weight: bold;">HomePage</a></p>
+                    </div>     
+                    <div class="button">
+                        <button type="submit">Reset Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

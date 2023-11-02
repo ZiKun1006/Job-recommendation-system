@@ -1,0 +1,89 @@
+{% extends 'user_search_result.html' %}
+
+{% block div %}
+<div class="ground"> 
+  <div class="information">
+    <form method="post">
+      {% csrf_token %}
+      <div class="top">  
+        <img src="{{job.company.image.url}}" alt="{{job}}"/>
+          {%if unique %}
+          <button class="button1" name="apply" id="apply" disabled>Applied</button>
+          {% else %}
+          <button class="button" type="submit" name="apply" id="apply">ApplyJob</button>
+          {% endif %}   
+      </div>
+    </form>
+    <h3>{{job.title}}</h3>
+    <h4>{{job.company.name}}</h4>
+    <h4>{{job.location}}</h4>
+    <h4>RM {{job.salary}}0 per month</h4>
+    <h5>Posted By {{job.creation_date}}</h5>
+    <div style="color:rgb(255, 146, 107); text-align:center;font-size:13px;">
+        {% if messages %}
+        {% for message in messages %}
+        <h2>{{message}}</h2>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <br>
+    <hr style="border: 2px solid black;">
+    <br>
+    <div class="bottom">
+      <h1>DETAILS</h1>
+      <div class="space_distance">
+        <p>&emsp;&ensp;Job Type:</p><p>Job Experience:</p><p>Start Working Date:</p>
+      </div>
+      <div class="space_distance" style="color:darkblue;">
+        <p>{{job.time}}</p><p>{{job.experience}} Years</p><p>{{job.expired_date}}</p>
+      </div>
+      <ul>Job Description:
+        <ul>
+          <pre>{{job.description}}</pre>
+        </ul>
+      </ul>
+
+      <ul>Skills Required:
+        <ul>
+          <pre>{{job.skills}}</pre>
+        </ul>
+      </ul>
+
+      <ul>Company Benefits & Others:
+        <ul>
+          <pre>{{job.other}}</pre>
+        </ul>
+      </ul>
+
+      <ul>Average Processing Time:
+        <ul>
+          <pre>14 Days</pre>
+        </ul>
+      </ul>
+
+      <ul>Location in Google Map
+        <ul>
+          <div id="map"></div>
+          <script type="text/javascript">
+            window.onload = function() {
+              L.mapquest.key = 'm2Zik9ujvwY9RlIOy7VWWYbaeR4fOPSg';
+      
+              var map = L.mapquest.map('map', {
+                center: [{{latitude}},{{longitude}}],
+                layers: L.mapquest.tileLayer('map'),
+                zoom: 18
+              });
+      
+              L.marker([{{latitude}},{{longitude}}], {
+                icon: L.mapquest.icons.marker(),
+                draggable: false
+              }).bindPopup('{{job.company.name}}').addTo(map);
+      
+            };
+          </script>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

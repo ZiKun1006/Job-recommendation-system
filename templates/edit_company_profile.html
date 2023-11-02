@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-company</title>
+    <link rel="stylesheet" href="/static/css/style10.css">
+  </head>
+
+  <body>
+    <div class="background">
+        <div class="box">
+          <a class="exit" href='{% url "company_profile" %}'>&times;</a>
+          <h1>Update Profile</h1>
+          <div class="btn">
+            <div id="select"></div>
+            <button type="button" class="toggle-btn" onclick="info()">Company Information</button>
+            <button type="button" class="toggle-btn" onclick="image()">Company Logo</button>
+          </div>
+          <form action ="" method="POST">
+            {% csrf_token %}
+            <div class="input" id="for-company-info">
+              <label for = "name"><b>Company Name:</b></label>
+              <div class="field">
+                <input type="text" placeholder="Enter Company Name" name="name" id="name" value='{{company.name}}' disabled>
+              </div>
+  
+              <label for = "email"><b>Email Address:</b></label>
+              <div class="field">
+                <input type="email" placeholder="Enter Email" name="email" id="email" value='{{company.email}}' required/>
+              </div>
+
+              <label for = "phone"><b>Phone Number:</b></label>
+              <div class="field">
+                <input type="tel" placeholder="Enter Email" name="phone" id="phone" value='{{company.phone}}' required/>
+              </div>
+
+              <label for = "website"><b>Company Website:</b></label>
+              <div class="field">
+                <input type="text" placeholder="Enter url" name="website" id="website" value='{{company.website}}'>
+              </div>
+  
+              <div class="button">
+                <button type="submit" class="color" name="info-update">UPDATE</button>
+              </div>
+            </div>
+          </form>
+  
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input" id="for-company-logo">
+              <label for = "image"><b>Company Logo:</b><p style="margin-top:2px;">{{company.image}}</p></label>
+              <div class="field">
+                <input type="file" name="image" id="image" required/>
+              </div>
+  
+              <div class="button">
+                <button type="submit" class="color" name="image-update">UPDATE</button>      
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </body>
+
+  <script>
+      var a = document.getElementById("for-company-logo")
+      var b = document.getElementById("for-company-info")
+      var c = document.getElementById("select")
+
+      function info(){
+          a.style.left="-450px";
+          b.style.left="50px";
+          c.style.left="0px";
+      }
+
+      function image(){
+          a.style.left="50px";
+          b.style.left="450px";
+          c.style.left="195px";
+      }
+  </script>
+</html>

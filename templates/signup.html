@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/static/css/style2.css">
+  </head>
+
+  <body>
+    <div class="background">
+      <div class="box">
+        <a class="exit" href='{% url "home" %}'>&times;</a>
+        <h1>Sign Up</h1>
+        <div class="btn">
+          <div id="select"></div>
+          <button type="button" class="toggle-btn" onclick="student()">For Student</button>
+          <button type="button" class="toggle-btn" onclick="employee()">For Employer</button>
+        </div>
+        <div style="color:orangered; margin-left: 30px;">
+          {% if messages %}
+          {% for message in messages %}
+          <h5>{{message}}</h5>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input" id="for-student">
+            <label for = "username"><b>Username:</b></label>
+            <div class="field">
+              <input type="text" placeholder="Enter Username" name="username" id="username" required/>
+            </div>
+
+            <label for = "email"><b>Email Address:</b></label>
+            <div class="field">
+              <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+            </div>
+
+            <label for = "gender"><b>Gender:</b></label>
+            <select name="gender" id="gender" required>
+              <option value="female" selected>Female</option>
+              <option value="male">Male</option>
+            </select>
+
+            <label for = "phone"><b>Phone Number:</b></label>
+            <div class="field">
+              <input type="tel" placeholder="Ex.(012) 123-4567 / (012) 1234-5678" name="phone" id="phone" pattern="(\(\d{3}\) +\d{3}-\d{4})|(\(\d{3}\) +\d{4}-\d{4})" required/>
+            </div>
+
+            <label for = "dob"><b>Date of Birth:</b></label>
+            <div class="field">
+              <input type="date" name="dob" id="dob" required/>
+            </div>
+
+            <label for = "resume"><b>Resume</b></label>
+            <div class="field">
+              <input type="file" name="resume" accept=".pdf" id="resume" required/>
+            </div>
+
+            <label for = "psw"><b>Password:</b></label>
+            <div class="field">
+              <input type="password" placeholder="Enter Password" name="psw" id="psw" minlegnth="8" required id="psw"/>
+            </div>
+
+            <label for = "cpsw"><b>Confirm Password:</b></label>
+            <div class="field">
+              <input type="password" placeholder="Enter Password Again" name="cpsw" id="cpsw" minlength="8" required id="cpsw">
+            </div>
+
+            <input type="checkbox" class="checked" id="clicked1"><label for = "clicked1"> Show Password</label>
+
+            <div class="button">
+              <button type="submit" class="color" name="s-signup">Sign Up</button>
+            </div>
+          </div>
+        </form>
+
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input" id="for-employee">
+            <label for = "username"><b>Company Name:</b></label>
+            <div class="field">
+              <input type="text" placeholder="Enter Company Name" name="username" id="username" required/>
+            </div>
+
+            <label for = "email"><b>Email Address:</b></label>
+            <div class="field">
+              <input type="email" placeholder="Enter Email" name="email" id="email" required/>
+            </div>
+
+            <label for = "phone"><b>Phone Number:</b></label>
+            <div class="field">
+              <input type="tel" placeholder="(03) 123-4567... / (012) 123-456..." name="phone" id="phone" pattern="(\(\d{3}\) +\d{3}-\d{4})|(\(\d{2}\) +\d{3}-\d{4})|(\(\d{2}\) +\d{3}-\d{5})|(\(\d{3}\) +\d{3}-\d{3})|(\(\d{2}\) +\d{4}-\d{4})" required/>
+            </div>
+
+            <label for = "img"><b>Company Logo:</b></label>
+            <div class="field">
+              <input type="file" name="image" accept="image/*" id="img" required/>
+            </div>
+
+            <label for = "url"><b>Company Website:</b></label>
+            <div class="field">
+              <input type="url" name="url" placeholder="Enter Company Website Link" id="url" required/>
+            </div>
+
+            <label for = "psw1"><b>Password:</b></label>
+            <div class="field">
+              <input type="password" placeholder="Enter Password" id="psw1" name="psw1" minlegnth="8" required id="psw1"/>
+            </div>
+
+            <label for="cpsw1"><b>Confirm Password:</b></label>
+            <div class="field">
+              <input type="password" placeholder="Enter Password Again" id="cpsw1" name="cpsw1" minlength="8" required id="cpsw1"/>
+            </div>
+
+            <input type="checkbox" class="checked" id="clicked2"><label for="clicked2"> Show Password</label>
+
+            <div class="button">
+              <button type="submit" class="color" name="e-signup">Sign Up</button>      
+            </div>
+          </div>
+        </form>
+      </div>   
+    </div>
+
+    <script>
+    const btn1=document.querySelector('#clicked1');
+    const btn2=document.querySelector('#clicked2');
+
+    function showpassword(){
+      var x = document.getElementById("psw");
+      var y = document.getElementById("cpsw");
+      
+      if(x.type==="password" && y.type==="password"){
+        x.type="text";
+        y.type="text";
+      }
+      else{
+        x.type="password";
+        y.type="password";
+      }
+    }
+    btn1.onclick=showpassword;
+
+    function showpassword1(){
+      const btn2=document.querySelector('#clicked2');
+      var x = document.getElementById("psw1");
+      var y = document.getElementById("cpsw1");
+      if(x.type==="password" && y.type==="password"){
+        x.type="text";
+        y.type="text";
+      }
+      else{
+        x.type="password";
+        y.type="password";
+      }
+    }
+    btn2.onclick=showpassword1;
+      
+    var a = document.getElementById("for-employee")
+    var b = document.getElementById("for-student")
+    var c = document.getElementById("select")
+
+    function student(){
+      a.style.left="-450px";
+      b.style.left="50px";
+      c.style.left="0px";
+    }
+
+    function employee(){
+      a.style.left="50px";
+      b.style.left="450px";
+      c.style.left="165px";
+    }
+    </script>
+  </body>
+</html>

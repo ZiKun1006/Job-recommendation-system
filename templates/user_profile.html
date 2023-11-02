@@ -1,0 +1,62 @@
+{% extends 'user_navbar.html' %}
+
+{% block body%}
+<div class="background1">
+    <div class="boxes">
+        <a href='{% url "edit_user_profile" %}'><img src="/static/images/edit.png" alt="edit" /></a>
+        <h1>{{user.name}}</h1>
+
+        <div class="bottom">
+        <h2>Information</h2>
+        <div class="inform">
+            <div class="data">
+                <h4>Date of Birth: {{user.dob}}</h4>   
+            </div>
+            <div class="data">
+                <form method="post">
+                    <h4 id="age" name="age" style="color:black"></h4>
+                </form>   
+            </div>
+            <div class="data">
+                <h4>Gender: {{user.gender}}</h4>   
+            </div>
+            <div class="data">
+                <h4 style="color:black">Phone Number: {{user.phone}}</h4>   
+            </div>
+            <div class="data">
+                <h4>Email Address: {{user.email}}</h4>   
+            </div>
+            <div class="data">
+                <h4 style="color:black">Resume Uploaded: <a href="{{user.resume.url}}">{{user.resume}}</a></h4>   
+            </div>
+            <br>
+            <div class="button">
+                <a href='{% url "forgotpsw" %}'>Change Password</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function printResults(){
+        var DOB = "{{user.dob}}";
+        var dob = Date.parse(DOB);
+        var Now = Date.now();
+        var ageInMilliseconds = Now-dob;
+
+        var milliseconds = ageInMilliseconds;
+        var second = 1000;
+        var minute = second*60;
+        var hour = minute*60;
+        var day = hour*24;
+        var month = day*30; 
+        var year = day*365;
+        var years = Math.round(milliseconds/year);
+
+        document.getElementById('age').innerHTML = "Age: "+years + " years old";   
+    }
+    window.onload = printResults;
+    
+</script>
+{% endblock %}

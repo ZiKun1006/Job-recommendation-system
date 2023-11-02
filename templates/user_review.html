@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-company</title>
+    <link rel="stylesheet" href="/static/css/style15.css">
+  </head>
+
+  <body>
+    <div class="background2">
+      <div class="box1">
+        <form method="POST">
+          {% csrf_token %}
+          <a class="exit" href="/user_company_detail/{{company.id}}">&times;</a>
+          <h1>Company Overview</h1>
+          <div class="title">
+            Select a company to review
+          </div>
+          <input class="input" name="company" value="{{company.name}}" disabled />
+          <div class="title">
+            Overall rating of your experience here
+          </div>    
+          <div class="rate"> 
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+          </div>
+        </div>
+
+        <div class="box2">
+          <h1>Your Experience</h1>
+          <div class="title">
+            Please provide your review title - This will appear with your review 
+          </div>
+          <input type =text class="input" name="title" placeholder="Enter Job Position" required/>
+          <div class="title">
+            Good Things
+          </div>
+          <textarea class="input" name="good" required></textarea>
+          <div class="title">
+            The challenges working for this company
+          </div>
+          <textarea class="input" name="bad" required></textarea>    
+          <div class="title">
+            Additional Information
+          </div>
+          <textarea class="input" name="additional"></textarea>
+
+          <div class="button">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

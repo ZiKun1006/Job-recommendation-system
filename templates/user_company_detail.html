@@ -1,0 +1,52 @@
+{% extends 'user_navbar.html' %}
+
+{% block body %}
+  <div class="information"> 
+    <div class="top2">  
+      <img src="{{company.image.url}}" alt="{{company}}"/>
+      <h3>Working at - [ {{company.name}} ]</h3>
+    </div>
+    <div class="top3">
+      {% if avg_rating.avg != None  %}
+      <h2>{{avg_rating.avg|floatformat:1}} / 5.0 ⭐ </h2>
+      {% else %}
+      <h2>{{company.avg_rating}} / 5.0 ⭐ </h2>
+      {% endif %}
+      <a href="{{company.website}}"> Go to Website <img src="/static/images/earth.png" alt="earth"/></a>
+    </div>
+  </div>
+
+  <div class="information1">
+    <div class="column">
+        <a href='{% url "user_companies" %}'>BACK</a> 
+        <h1>REVIEWS</h1>
+        <a href="/user_company_review/{{company.id}}">Write A Review</a>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <h3 style="color:red;text-align: center;">{{message}}</h3>
+    {% endfor %}
+    {% endif %}
+    {% if avg_rating.avg != None %}
+    <div class="bottom">
+      {% for review in reviews %}
+      <div class="box">
+        <h4>Posted by - {{review.creation_date}}</h4>
+        <h2>{{review.head}}</h2>
+        <h3>The Good Things:</h3>
+        <p>{{review.good}}</p>
+        <h3>The Challenges:</h3>
+        <p>{{review.bad}}</p>
+        <h3>Additional Information:</h3>
+        <p>{{review.additional}}</p>
+        <h3 style="text-align: center;">Rating: {{review.score}} / 5 ⭐ </h3>
+      </div>
+      {% endfor %}
+    </div>  
+    {% else %}
+    <div class="bottom">
+      <p>No Rating yet !!!</p>
+    </div>
+    {% endif %}
+  </div> 
+{% endblock %}

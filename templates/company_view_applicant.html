@@ -1,0 +1,155 @@
+{% extends "company_navbar.html" %}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="backgrounds">
+        <div class="boxes">
+            <div class="box1">
+                <div class="multiselect1">
+                    <div class="selectBox" onclick="showCheckboxes1()">
+                        Related Courses:
+                        <select>
+                            <option>Select An Option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes1">
+                        <label for="all1">
+                            <input type="checkbox" id="all1" name="course" value="all"/>All</label>
+                        <label for="cs">
+                            <input type="checkbox" id="cs" name="course" value="Computer Science"/>Computer Science</label>
+                        <label for="ict">
+                            <input type="checkbox" id="ict" name="course" value="Information and Communication Technology"/>Information and Communication Technology</label>
+                        <label for="se">
+                            <input type="checkbox" id="se" name="course" value="Software Engineering"/>Software Engineering</label>
+                        <label for="non">
+                            <input type="checkbox" id="non" name="course" value="non IT"/>Non IT</label>
+                    </div>
+                </div>
+                <div class="multiselect2">
+                    <div class="selectBox" onclick="showCheckboxes2()">
+                        Languages:
+                        <select>
+                            <option>Select An Option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes2">
+                        <label for="all2">
+                            <input type="checkbox" id="all2" name="language" value="all"/>All</label>
+                        <label for="english">
+                            <input type="checkbox" id="english" name="language" value="english"/>English</label>
+                        <label for="malay">
+                            <input type="checkbox" id="malay" name="language" value="malay"/>Malay</label>
+                        <label for="mandarin">
+                            <input type="checkbox" id="mandarin" name="language" value="mandarin"/>Mandarin</label>
+                    </div>
+                </div>
+                <div class="multiselect3">
+                    <div class="selectBox" onclick="showCheckboxes3()">
+                        Age:
+                        <select>
+                            <option>Select An Option</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes3">
+                        <label for="all3">
+                            <input type="checkbox" id="all3" name="age" value="all"/>All</label>
+                        <label for="21to25">
+                            <input type="checkbox" id="21to25" name="age" value="21to25"/>21 - 25</label>
+                        <label for="26to30">
+                            <input type="checkbox" id="26to30" name="age" value="26to30"/>26 - 30</label>
+                    </div>
+                </div>
+                <button type="submit" name="filter" class="filter">Filter</button>
+            </div>
+            <table class ="tables">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Applicant Name</th>
+                        <th>Job Position</th>
+                        <th>Resume</th>  
+                        <th>Applied Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for apply in applies %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{apply.applicant}}</td>
+                        <td>{{apply.job}}</td>
+                        <td><a href="{{apply.resume.url}}">{{apply.resume}}</a></td>
+                        <input type="hidden" name="resume" value="{{apply.resume.url}}" />
+                        <td>{{apply.apply_date}}</td>
+                        <td>
+                            {% if apply.status == "Received" or apply.status == "Rejected" %}
+                            {{apply.status}}
+                            {% else %}
+                            <form method="post">
+                                {% csrf_token %}
+                                <select name="status" required>
+                                    <option value="Pending" selected hidden>{{apply.status}}</option>
+                                    <option value="Received">Received</option>
+                                    <option value="Rejected">Rejected</option>
+                                    </button>
+                                </select>
+                                <input type="hidden" name="applicant" value="{{apply.applicant}}" />
+                                <input type="hidden" name="jobs" value="{{apply.job}}" />
+                                <button type="submit" name="submit"><img src="/static/images/correct-icon.png" alt="correct-icon" /></button>
+                                {% endif %}
+                            </form> 
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="button">
+                <a href='{% url "company_homepage" %}'> BACK </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var expanded1 = false;
+    var expanded2 = false;
+    var expanded3 = false;
+
+    function showCheckboxes1() {
+        var checkboxes = document.getElementById("checkboxes1");
+        if (!expanded1) {
+            checkboxes.style.display = "block";
+            expanded1 = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded1 = false;
+        }
+    }
+        
+    function showCheckboxes2() {
+        var checkboxes = document.getElementById("checkboxes2");
+        if (!expanded2) {
+            checkboxes.style.display = "block";
+            expanded2 = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded2 = false;
+        }
+    }
+
+    function showCheckboxes3() {
+        var checkboxes = document.getElementById("checkboxes3");
+        if (!expanded3) {
+            checkboxes.style.display = "block";
+            expanded3 = true;
+        } else {
+            checkboxes.style.display = "none";
+            expanded3 = false;
+        }
+    }   
+</script>
+{% endblock %}

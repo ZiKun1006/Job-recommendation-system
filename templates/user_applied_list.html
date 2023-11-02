@@ -1,0 +1,33 @@
+{% extends "user_navbar.html" %}
+
+{% block body %}
+<div class="backgrounds">
+    <div class="boxes">
+        <table class ="tables">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Company Name</th>
+                    <th>Job Position</th> 
+                    <th>Applied Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apply in applies %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{apply.company}}</td>
+                    <td>{{apply.job}}</td>
+                    <td>{{apply.apply_date}}</td>
+                    <td>{{apply.status}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button">
+            <a href='{% url "user_homepage" %}'> BACK </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

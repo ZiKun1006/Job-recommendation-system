@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/job-satisfaction.ico" />
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style4.css">
+    <link rel="stylesheet" href="/static/css/style11.css">
+    <link rel="stylesheet" href="/static/css/style12.css">
+    <link rel="stylesheet" href="/static/css/style17.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="extra" id="log-in">
+        <form class="content" method="post">
+          {%csrf_token %}
+          <div class="back">
+            <span class="exit" onclick="document.getElementById('log-in').style.display='none'">&times;</span>
+          </div>
+          <div class="background">
+            <img src="/static/images/logo.png" alt="logo" /><br><br>
+            <div style="color:orangered;margin-left:8px;">
+              {% if messages %}
+              {% for message in messages %}
+              <h4>{{message}}</h4>
+              {% endfor %}
+              {% endif %}
+            </div>
+            <label for = "email"><b>Email Address</b></label>
+            <br>
+            <input type="email" placeholder="Enter Email Address" name="email" required/>
+            <br>
+            <label for = "password"><b>Password</b></label>
+            <br>
+            <input type="password" placeholder="Enter Password" name="password" required/>
+            <br>
+            <a href='{% url "forgotpsw" %}'>Forgot Your Password ?</a>
+            <br>
+            <button type="submit" name="login">Login</button>
+          </div> 
+        </form>
+      </div>
+      <nav>
+        <a href='{% url "home" %}'><img src="/static/images/logo.png" alt="logo"/></a>
+        <nav>
+          <div class="nav-links">
+            <a href='{% url "about_us" %}'>About Us</a>
+            <a href='{% url "companies" %}'>Companies Profile</a>
+            <a href='{% url "feedbacks" %}'>Feedback</a>
+          </div>
+        </nav>
+        <div class="nav-link-button">
+          <button onclick="document.getElementById('log-in').style.display='block'" class="login"><strong>LOG IN</strong></button>
+          <a href='{% url "signup" %}' class="login"><strong>SIGN UP</strong></a>
+        </div>
+      </nav>
+    </header>
+    {% block body %}
+    {% endblock %}
+    </body>
+</html>

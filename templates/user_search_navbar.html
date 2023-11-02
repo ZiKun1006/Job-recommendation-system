@@ -1,0 +1,19 @@
+{% extends "user_navbar.html" %}
+
+{% block body %} 
+  <div class="head">
+    <form acion="" method="POST">
+      {% csrf_token %}
+      <div class="search"> 
+        <p>Search:&ensp;</p>
+        <input type="text" placeholder="Job Title or Keywords" value='{{name}}' name="name">
+        <p>&emsp;Location:&ensp;</p>
+        <input type="text" placeholder="Location (City or Town)" value='{{location}}' name="location">
+        &emsp;
+        <button type="submit" name="search"> SEARCH</button>
+      </div>
+    </form>
+  </div>
+  {% block div %}
+  {% endblock %} 
+{% endblock %}

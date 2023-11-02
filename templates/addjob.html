@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-company</title>
+    <link rel="stylesheet" href="/static/css/style7.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        <h1>ADD JOB</h1>
+        <a class="exit" href='{% url "company_homepage" %}'>&times;</a>
+        
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input">
+            <label for = "title"><b>Job Position:</b></label>
+            <div class="field">
+              <input type="text" placeholder="Enter Job Position" name="title" id="title" required/>
+            </div>
+
+            <label for = "time"><b>Enrollment Status:</b></label>
+            <select name="time" id="time" required>
+              <option value="Full time">Full Time</option>
+              <option value="Part time">Part Time</option>
+              <option value="Internship">Internship</option>
+              <option value="Remote">Remote</option>
+            </select>
+
+            <label for = "expired_date"><b>Expiry Date:</b></label>
+            <div class="field">
+              <input type="date" name="expired_date" id="expired_date" required/>
+            </div>
+
+            <label for = "salary"><b>Salary: (RM per month)</b></label>
+            <div class="field">
+              <input type="number" placeholder="Enter Salary" name="salary" id="salary" required/>
+            </div>
+
+            <label for = "experience"><b>Experience Years:</b></label>
+            <div class="field">
+              <input type="text" placeholder="Enter Experience" name="experience" id="experience" required/>
+            </div>
+
+            <label for = "skills"><b>Skills Required:</b></label>
+              <textarea name="skills" id="skills" required></textarea>
+
+            <label for = "location"><b>Location:</b></label>
+            <div class="field">
+              <input type="text" placeholder="Enter Location" name="location" id="location" required/>
+            </div>
+
+            <label for = "description"><b>Job Description:</b></label>
+              <textarea name="description" id="description" required></textarea>
+
+            <label for = "others"><b>Company Benefits & Others:</b></label>
+              <textarea name="others" id="others" required></textarea>
+
+            <input type="hidden" name="username" value="{{request.user}}">
+            
+            <div class="button">
+              <button type="submit" name="add">ADD</button>      
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

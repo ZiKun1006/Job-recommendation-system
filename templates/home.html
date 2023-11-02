@@ -1,0 +1,56 @@
+{% extends 'basic.html' %}
+
+{% block body %}    
+  <div class="container">
+    <div class="adjust">
+      <form acion="" method="POST">
+        {% csrf_token %}
+        <div class="search-bar">
+          <img src="/static/images/business-bag-icon.png" alt="business-bag-icon" />
+          <input type="text" placeholder="Job Title or Keywords" name="name" />
+        </div>
+        <br>
+        <div class="search-bar">
+          <img src="/static/images/icon.jpg" alt="icon" />
+          <input type="text" placeholder="Location (City or Town)" name="location" />
+        </div>
+        <br>
+        <button type="submit" name="search"><img src="/static/images/search1.png" alt="search1"> SEARCH</button>
+        <br>
+        <div class="nav-link"> 
+          <a href='{% url "signup" %}'><strong>Upload Your Resume Now!</strong></a>
+        </div>
+      </form>
+    </div> 
+  </div>
+  
+  <div class="preferences">
+    <h1>
+      <hr style="border-style:dashed;border-width: 2px;">
+      Recommended based on Your Preferences
+      <hr style="border-style:dashed;border-width: 2px;">
+    </h1><br>
+    <div class="box">
+      <ul>
+        {% for Job in Jobs %}
+        <li>
+          <a class="boxes" href='{% url "job_detail" Job.id %}'>
+            <div class="infor">
+              <img src="{{Job.company.image.url}}" alt="company_image" />
+              <h2>{{Job.title}}</h2>
+              <h3>{{Job.company.name}}</h3>
+              <h4>{{Job.location}}</h4>
+              {% if Job.checktoday %}
+              <p>
+                new
+              </p>
+              {% endif %}
+              <h5 id ='date'>Posted by - {{Job.creation_date}}</h5>
+            </div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,232 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Job Recommendation Website</title>
+        <link rel="icon" type="image/x-icon" href="/static/images/test.ico" />
+        <link rel="stylesheet" href="/static/css/style18.css">
+    </head>
+
+    <body>  
+        <div class="ground">
+            <form name="form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div id="previous"> 
+                    <h1>Career Test</h1>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                1.&nbsp;&nbsp;I am very interested in using my artistic abilities.
+                            </div>
+                            <input type="radio" name="q1" id="yes1" value="yes"><label for ="yes1"> Yes</label><br><br>
+                            <input type="radio" name="q1" id="no1" value="no"><label for ="no1"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                2.&nbsp;&nbsp;I am very interested in coding a website, mobile application, or software.
+                            </div>
+                            <input type="radio" name="q2" id="yes2" value="yes"><label for ="yes2"> Yes</label><br><br>
+                            <input type="radio" name="q2" id="no2" value="no"><label for ="no2"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                3.&nbsp;&nbsp;I am very interested in responding to a cyber attack.
+                            </div>
+                            <input type="radio" name="q3" id="yes3" value="yes"><label for ="yes3"> Yes</label><br><br>
+                            <input type="radio" name="q3" id="no3" value="no"><label for ="no3"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                4.&nbsp;&nbsp;I am very interested in learning how computer hardware and software works.
+                            </div>
+                            <input type="radio" name="q4" id="yes4" value="yes"><label for ="yes4"> Yes</label><br><br>
+                            <input type="radio" name="q4" id="no4" value="no"><label for ="no4"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                5.&nbsp;&nbsp;I am very interested in creating graphics.
+                            </div>
+                            <input type="radio" name="q5" id="yes5" value="yes"><label for ="yes5"> Yes</label><br><br>
+                            <input type="radio" name="q5" id="no5" value="no"><label for ="no5"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                6.&nbsp;&nbsp;I am very interested in coding a website, mobile application, or software.
+                            </div>
+                            <input type="radio" name="q6" id="yes6" value="yes"><label for ="yes6"> Yes</label><br><br>
+                            <input type="radio" name="q6" id="no6" value="no"><label for ="no6"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                7.&nbsp;&nbsp;I am very interested in learning multiple programming languages.
+                            </div>
+                            <input type="radio" name="q7" id="yes7" value="yes"><label for ="yes7"> Yes</label><br><br>
+                            <input type="radio" name="q7" id="no7" value="no"><label for ="no7"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                8.&nbsp;&nbsp;I am very interested in keeping a business' computer systems safe and secure.
+                            </div>
+                            <input type="radio" name="q8" id="yes8" value="yes"><label for ="yes8"> Yes</label><br><br>
+                            <input type="radio" name="q8" id="no8" value="no"><label for ="no8"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                9.&nbsp;&nbsp;I am very interested in fixing and upgrading computers.
+                            </div>
+                            <input type="radio" name="q9" id="yes9" value="yes"><label for ="yes9"> Yes</label><br><br>
+                            <input type="radio" name="q9" id="no9" value="no"><label for ="no9"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                10.&nbsp;&nbsp;I am very interested in troubleshooting software code.
+                            </div>
+                            <input type="radio" name="q10" id="yes10" value="yes"><label for ="yes10"> Yes</label><br><br>
+                            <input type="radio" name="q10" id="no10" value="no"><label for ="no10"> No</label>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#next" style="margin-left:45%;" id="next_btn">Next >></a>
+                </div>  
+                <div id="next">  
+                    <h1>Career Test</h1>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                11.&nbsp;&nbsp;I am very interested in analyzing information about ICT.
+                            </div>
+                            <input type="radio" name="q11" id="yes11" value="yes"><label for ="yes11"> Yes</label><br><br>
+                            <input type="radio" name="q11" id="no11" value="no"><label for ="no11"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                12.&nbsp;&nbsp;I am very interested in maintaining a network of computers
+                            </div>
+                            <input type="radio" name="q12" id="yes12" value="yes"><label for ="yes12"> Yes</label><br><br>
+                            <input type="radio" name="q12" id="no12" value="no"><label for ="no12"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                13.&nbsp;&nbsp;I am very interested in researching the latest trends in computer networking.
+                            </div>
+                            <input type="radio" name="q13" id="yes13" value="yes"><label for ="yes13"> Yes</label><br><br>
+                            <input type="radio" name="q13" id="no13" value="no"><label for ="no13"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                14.&nbsp;&nbsp;I am very interested in applying software and operating system updates.
+                            </div>
+                            <input type="radio" name="q14" id="yes14" value="yes"><label for ="yes14"> Yes</label><br><br>
+                            <input type="radio" name="q14" id="no14" value="no"><label for ="no14"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                15.&nbsp;&nbsp;I am very interested in developing software or websites.
+                            </div>
+                            <input type="radio" name="q15" id="yes15" value="yes"><label for ="yes15"> Yes</label><br><br>
+                            <input type="radio" name="q15" id="no15" value="no"><label for ="no15"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                16.&nbsp;&nbsp;I am very interested in recommending software and hardware improvements to a company.
+                            </div>
+                            <input type="radio" name="q16" id="yes16" value="yes"><label for ="yes16"> Yes</label><br><br>
+                            <input type="radio" name="q16" id="no16" value="no"><label for ="no16"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                17.&nbsp;&nbsp;I am very interested in recommending a phone, tablet, or computer based on a person's needs.
+                            </div>
+                            <input type="radio" name="q17" id="yes17" value="yes"><label for ="yes17"> Yes</label><br><br>
+                            <input type="radio" name="q17" id="no17" value="no"><label for ="no17"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                18.&nbsp;&nbsp;I am very interested in setting up computers and printers for a business.
+                            </div>
+                            <input type="radio" name="q18" id="yes18" value="yes"><label for ="yes18"> Yes</label><br><br>
+                            <input type="radio" name="q18" id="no18" value="no"><label for ="no18"> No</label>
+                        </div>
+                    </div>
+                    <div style="display:flex; justify-content:space-evenly;">
+                        <div class="box">
+                            <div class="title">
+                                19.&nbsp;&nbsp;I am very interested in helping people with their technology issues.
+                            </div>
+                            <input type="radio" name="q19" id="yes19" value="yes"><label for ="yes19"> Yes</label><br><br>
+                            <input type="radio" name="q19" id="no19" value="no"><label for ="no19"> No</label>
+                        </div>
+                        <div class="box">
+                            <div class="title">
+                                20.&nbsp;&nbsp;I am very interested in teaching people how their computer works.
+                            </div>
+                            <input type="radio" name="q20" id="yes20" value="yes"><label for ="yes20"> Yes</label><br><br>
+                            <input type="radio" name="q20" id="no20" value="no"><label for ="no20"> No</label>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#previous" style="margin-left:39%; margin-right:1%;" id="pre_btn"><< Previous</a> 
+                </div>
+                <a href='{% url "user_homepage" %}' class="exit">&times;</a>
+                <button type="submit" id="submit">Submit</button>
+            </form>   
+        </div>
+    </body>
+
+    <script>
+        var checkAllRadios = function(){
+            var sentences="",j=1;
+            var btns= form.querySelectorAll('input[name^=q][type="radio"]');
+            for (var i=0; i<btns.length;i=i+2){
+                if(!btns[i].checked && !btns[i+1].checked){
+                    sentences += "Question "+j+', ';
+                }
+                j++; 
+            }
+            
+            if(sentences =="Question 1, Question 2, Question 3, Question 4, Question 5, Question 6, Question 7, Question 8, Question 9, Question 10, Question 11, Question 12, Question 13, Question 14, Question 15, Question 16, Question 17, Question 18, Question 19, Question 20, "){
+                sentences="all questions"
+            }
+            else if(sentences.slice(-2) != "20"){
+                sentences = sentences.slice(0,-2);
+            }
+            
+            if(sentences!="") {
+                alert("Please answer "+sentences+"!");
+                return false;
+            }  
+        }
+        var form = document.querySelector('form[name="form"]');
+        form.onsubmit = checkAllRadios;
+
+        var a = document.getElementById("previous")
+        var b = document.getElementById("next")
+        var c = document.getElementById("submit")
+    
+        function pre(){
+          a.style.left="-450px";
+          b.style.left="50px";
+          c.style.left="50px";
+        }
+    
+        function aft(){
+          a.style.left="50px";
+          b.style.left="450px";
+          c.style.left="450px";
+        }
+    </script>
+</html>

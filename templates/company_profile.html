@@ -1,0 +1,35 @@
+{% extends 'company_navbar.html' %}
+
+{% block body%}
+  <div class="background">
+    <div class="box">
+      <div class="top">
+        <img src='{{company.image.url}}' style="background-color: rgb(255, 255, 255); width:50%;" alt="company_image" />
+        <br>
+        <h1>{{company.name}}</h1>
+        <a href='{% url "edit_company_profile" %}'><img src="/static/images/edit.png" alt="edit"></a>
+      </div>
+
+      <div class="bottom">
+        <h2>Information</h2>
+        <div class="info">
+          <div class="data">
+              <h4>Email</h4>
+              <p>{{company.email}}</p>  
+          </div>
+          <div class="data">
+              <h4>Phone</h4>
+              <p>{{company.phone}}</p>  
+          </div>
+          <div class="data">
+              <h4>Website Link</h4>
+              <p>{{company.website}}</p>  
+          </div>
+          <div class="data">
+              <a href='{% url "forgotpsw" %}'>Change Password</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'company_navbar.html' %}
+
+{% block body %} 
+<div class="backgrounds">
+  <h1>Job List</h1>
+  <div class="boxes">
+    <table class="tables" id="table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Position</th>
+          <th>Salary</th>
+          <th>Location</th>
+          <th>Expiry Date</th>
+          <th>Created Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job in jobs %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{job.title}}</td>
+          <td>{{job.salary}}</td>
+          <td>{{job.location}}</td>
+          <td>{{job.expired_date}}</td>
+          <td>{{job.creation_date}}</td>
+          <td><a href='/edit_job/{{job.id}}/'><img src="/static/images/edit.png" /></a>&emsp;
+          <a href='/delete_job/{{job.id}}/'><img src="/static/images/dustbin.png" /></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="button">
+      <a href='{% url "company_homepage" %}'> BACK </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

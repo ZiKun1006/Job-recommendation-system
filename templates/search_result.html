@@ -1,0 +1,50 @@
+{% extends 'search_navbar.html' %}
+
+{% block div %} 
+<div class="split">
+  <button id="top">Top</button>
+    <p>We have <strong>{{len}}</strong> Jobs for You</p>
+    {% for Job in jobs %}
+    <a class="boxes" href= '{% url "job_detail" Job.id %}'>
+      <div class="info">
+        <img src="{{Job.company.image.url}}" alt="{{Job}}"/>
+        <h2>{{Job.title}}</h2>
+        <h3>{{Job.company.name}}</h3>
+        <h4>{{Job.location}}</h4>
+        {% if Job.checktoday %}
+        <p>
+          new
+        </p>
+        {% endif %}
+        <h5 id ='date'>Posted by - {{Job.creation_date}}</h5>
+      </div> 
+    </a>
+    {% endfor %}
+  </div>
+  <div id="details">
+  {% for i in jobs %}
+    {% if i == Job %}
+    <p>{{i.title}}</p>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+  <script>
+    var topbutton = document.getElementById('top');
+     window.onscroll = function(){scrollfunction()};
+
+     function scrollfunction(){
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+        topbutton.style.display ="block";
+      }
+      else{
+        topbutton.style.display="none";
+      }
+     }
+
+     function topfunction(){
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+     }
+  </script>
+{% endblock %}

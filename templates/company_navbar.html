@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-company</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/company.ico" />
+    <link rel="stylesheet" href="/static/css/style8.css">
+    <link rel="stylesheet" href="/static/css/style9.css">
+    <link rel="stylesheet" href="/static/css/style17.css">
+  </head>
+
+    <nav>
+        <a href='{% url "company_homepage" %}'><img src="/static/images/logo.png" alt="logo" /></a>
+        <div class="nav-link">
+        <span class="user">Hello, {{request.user}}</span>
+        <a href='{% url "logout" %}'>Logout</a>
+        </div>
+    </nav>
+    {% block body%}
+    {% endblock%}
+</html>

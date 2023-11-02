@@ -1,0 +1,44 @@
+{% extends 'user_navbar.html' %}
+
+{% block body %}
+    <div class="background2">
+        <div class="block">
+            <p>Search for a company</p>
+            <form class="bar">
+                <input type="text" placeholder="Enter Company Name" name="company">
+                <button type="submit"><img src="/static/images/search.png" alt="search" /></button>
+            </form>
+        </div>
+        <div class="block1">
+            <p>Popular companies</p>
+            <div class="contain">
+                <ul>
+                    {% for review2 in company_reviews2 %}
+                    <li>
+                        <a href='/user_company_detail/{{review2.id}}'>
+                            <div class="square">
+                                <img src="{{review2.image.url}}" alt="{{review2}}" />
+                                <h5>{{review2.name}}</h5>
+                                <h4>{{review2.avg_rating}}/5.0 ☆</h4>
+                                <h3>{{review2.length}} Rating</h3>
+                            </div>     
+                        </a>  
+                    </li>
+                    {% endfor %}
+                    {% for review1 in company_reviews1 %}
+                    <li>
+                        <a href="/user_company_detail/{{review1.id}}">
+                            <div class="square">
+                                <img src="{{review1.image.url}}" alt="{{review1}}" />
+                                <h5>{{review1.name}}</h5>
+                                <h4>{{review1.avg_rating}}/5.0 ☆</h4>
+                                <h3>No Rating</h3>
+                            </div>     
+                        </a>  
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

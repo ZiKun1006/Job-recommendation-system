@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website-company</title>
+    <link rel="stylesheet" href="/static/css/style16.css">
+  </head>
+
+  <body>
+    <div class="background">
+      <div class="box">
+        <a class="exit" href="{% url 'user_homepage' %}">&times;</a>
+        <form method="post">
+          {% csrf_token %}
+          <img src="/static/images/feedback.png" alt="feedback" />
+          <div class="frame">
+            <p>Email Address:</p>
+            <div class="field">
+              <input type="email" class="input" name="email" value="{{user.email}}" disabled/>
+            </div>
+              <p>Title:</p>
+              <div class="field">
+                <input type="text" class="input" name="title" required />
+              </div>
+              <p>Bugs / Issues Description:</p>
+              <textarea name="description" required></textarea>
+              <br>
+              <button type="submit" class="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% if popup %}
+    <div id="extra">
+      <div class="content">
+        <img src="/static/images/icon-correct.png" alt="completed" />
+        <h1>~ Thank You ~</h1>
+        <p>Your form has been successfully submitted!<br>
+          Thank You for giving us your valuable feedbacks!</p><br>
+        <a href="{% url 'user_homepage' %}" class="button">Back To Home</a>
+      </div>
+    </div>
+    {% endif %}
+  </body>
+</html>

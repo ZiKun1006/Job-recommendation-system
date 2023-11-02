@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Recommendation Website</title>
+    <link rel="icon" type="image/x-icon" href="/static/images/graduation-hat.ico" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style4.css">
+    <link rel="stylesheet" href="/static/css/style5.css">
+    <link rel="stylesheet" href="/static/css/style11.css">
+    <link rel="stylesheet" href="/static/css/style12.css">
+    <link rel="stylesheet" href="/static/css/style13.css">
+    <link rel="stylesheet" href="/static/css/style14.css">
+    <link rel="stylesheet" href="/static/css/style17.css">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href='{% url "user_homepage" %}'><img src="/static/images/logo.png" alt="logo" /></a>
+        <nav>
+          <div class="nav-links">
+            <a href='{% url "user_about_us" %}'>About Us</a>
+            <a href='{% url "user_companies" %}'>Companies<br>Profile</a>
+            <a href='{% url "user_feedbacks" %}'>Feedback</a>
+            <a href='{% url "user_test" %}'>Career<br>Test</a>
+
+          </div>
+        </nav>
+
+        <div class="nav-link-button">
+          <span class="user">Hello, {{request.user}}&nbsp;</span>
+          <button class="button" onclick="dropdown()"> MORE</button>
+          <div class="dropdown-content" id="content">
+            <a href='{% url "user_profile" %}'>View Profile</a>
+            <a href='{% url "user_applied_list" %}'>Applied List</a>
+            <a href='{% url "user_review_list" %}'>Review List</a>
+            <a href='{% url "logout" %}'>Log Out</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    {% block body %}
+    {% endblock %}
+  </body>
+  <script>
+    function dropdown(){
+      document.getElementById("content").classList.toggle("display");
+    }
+
+    window.onclick=function(more){
+      if (! more.target.matches('.button')){
+        var dropdown_content = document.getElementById("content");
+        if (dropdown_content.classList.contains("display")){
+          dropdown_content.classList.remove("display");
+        }
+      }
+    }
+  </script>
+</html>

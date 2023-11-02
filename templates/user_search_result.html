@@ -1,0 +1,30 @@
+{% extends "user_search_navbar.html" %}
+
+{% block div %} 
+<div class="split">
+    <p>We have <strong>{{len}}</strong> Jobs for You</p>
+    {% for Job in jobs %}
+    <a class="boxes" href= '{% url "user_job_detail" Job.id %}'>
+      <div class="info">
+        <img src="{{Job.company.image.url}}" alt="{{Job}}"/>
+        <h2>{{Job.title}}</h2>
+        <h3>{{Job.company.name}}</h3>
+        <h4>{{Job.location}}</h4>
+        {% if Job.checktoday %}
+        <p>
+          new
+        </p>
+        {% endif %}
+        <h5 id ='date'>Posted by - {{Job.creation_date}}</h5>
+      </div> 
+    </a>
+    {% endfor %}
+  </div>
+  <div id="details">
+  {% for i in jobs %}
+    {% if i == Job %}
+    <p>{{i.title}}</p>
+    {% endif %}
+  {% endfor %}
+  </div>
+{% endblock %}
