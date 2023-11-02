@@ -1,0 +1,42 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('',home,name='home'),
+    path('signup/',signup,name='signup'),
+    path('about_us/',about_us,name="about_us"),   
+    path('forgotpsw/',forgotpsw,name='forgotpsw'),
+    path('companies/',companies,name='companies'),
+    path('password_reset_completed/',resetcompleted,name="resetcompleted"),
+    path('password_reset/',password_reset,name="password_reset"),
+    path('search_result/',search_result,name="search_result"),
+    path('search_result/<int:id>/',job_detail,name="job_detail"),
+    path("logout/", log_out, name="logout"),
+    path('company_detail/<int:id>/',company_detail,name="company_detail"),
+    path('feedbacks/',feedbacks,name="feedbacks"),
+
+    path('add_job/',add_job,name="add_job"),
+    path('job_list/',job_list,name="job_list"),
+    path('company_homepage/',company_homepage,name="company_homepage"),
+    path('edit_job/<int:id>/',edit_job,name="edit_job"),
+    path('delete_job/<int:id>/',delete_job,name="delete_job"),
+    path('company_profile/',company_profile,name="company_profile"),
+    path('edit_company_profile/',edit_company_profile,name="edit_company_profile"),
+    path('company_view_applicant/',company_view_applicant,name="company_view_applicant"),
+    path('company_own_review/<int:id>/',company_own_review,name="company_own_review"),
+    path('company_feedbacks/',company_feedbacks,name="company_feedbacks"),
+
+    path('user_homepage/',user_homepage,name='user_homepage'),
+    path('user_profile/',user_profile,name="user_profile"),
+    path('edit_user_profile/',edit_user_profile,name="edit_user_profile"),
+    path('user_search_result/',user_search_result,name="user_search_result"),
+    path('user_search_result/<int:id>/',user_job_detail,name="user_job_detail"),
+    path('user_applied_list/',user_applied_list,name="user_applied_list"),
+    path('user_review_list/',user_review_list,name="user_review_list"),
+    path('user_companies/',user_companies,name='user_companies'),
+    path('user_company_review/<int:id>/',user_review,name="user_review"),
+    path('user_company_detail/<int:id>/',user_company_detail,name="user_company_detail"),
+    path('user_about_us/',user_about_us,name="user_about_us"), 
+    path('user_feedbacks/',user_feedbacks,name="user_feedbacks"),
+    path('user_test/',user_test,name="user_test"),
+]
