@@ -1,0 +1,87 @@
+.background1{
+    width:100%;
+    min-height:85vh;
+    background-image:url(/static/images/background4.jpg);
+    background-position: center;
+    background-size:cover;
+    position:relative;
+}
+
+.background1 .boxes{
+    height: 500px;
+    width: 100%;
+    max-width:700px;
+    background: rgb(255, 255, 255);
+    position:absolute;
+    width:100%;
+    border-radius: 20px;
+    top:4%;
+    left:50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.background1 .boxes .top{
+    height:40%;
+    background:cornflowerblue;
+    padding:5px 25px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    text-align:center;
+    font-weight: bold;
+}
+
+.background1 .boxes .top h3{
+    font-weight: bold;
+}
+
+.background1 .boxes a img{
+    width:20px;
+    height:20px;
+    margin-left:85%;
+    margin-top:3%;
+}
+
+.background1 .boxes .bottom{
+    height:100%;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 15px 25px;
+}
+
+.bottom > h2{
+    font-size:25px;
+    color: #000000;
+    padding-bottom:5px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+.inform{
+    margin-bottom: 15px;
+}
+
+.inform .button a{
+    color:#fff;
+    background: #001561;
+    border-radius:20px;
+    border:none;
+    outline:none;
+    transition: 1s;
+    flex-basis: 65%;
+    padding:1% 5%;
+    text-decoration:none;
+}
+
+.data{
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.data h4{
+    color: #3e74ff;
+    margin-bottom:15px;
+    margin-top:10px;
+    font-size: 18px;
+}

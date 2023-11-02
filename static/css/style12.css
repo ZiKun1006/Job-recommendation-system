@@ -1,0 +1,130 @@
+.ground{
+    width:100%;
+    min-height:100vh;
+    background-image:url('/static/images/background5.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
+
+.information > h3{
+    font-size: 18px;
+    color:rgb(118, 0, 208);
+    margin-bottom:1%;
+    margin-left:5%;
+}
+
+.information > h4{
+    font-size: 18px;
+    font-weight:lighter;
+    margin-bottom:5px;
+    margin-left:5%;
+}
+
+.information > h5{
+    font-size: 16px;
+    font-weight:lighter;
+    margin-top:2px;
+    color:rgb(94, 32, 92);
+    margin-bottom:5px;
+    margin-left:5%;
+}
+
+.information > a{
+    font-size: 16px;
+    padding:2%;
+}
+
+.top .button{
+    padding: 2% 5%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right:5px;
+    border:none;
+    border-radius:10px;
+    background: rgb(255, 97, 123);
+    color: white;
+    cursor:pointer;
+    transition: all 0.5s;
+}
+
+.top .button:hover{
+    transform: scale(1.1);
+    background: rgb(236, 41, 74);
+}
+
+.top .button1{
+    padding: 2% 5%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right:5px;
+    border:none;
+    border-radius:10px;
+    background: rgb(124, 124, 124);
+    color: rgb(0, 0, 0);
+}
+
+.top{
+    width:90%;
+    border:none;
+    margin:1% 0 1% 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.top img{
+    width:250px; 
+}
+
+.space_distance{
+    display:flex;
+    justify-content:space-around;
+}
+
+.bottom ul{
+    margin-left:5%;
+    font-weight:bold;
+    margin-bottom:16px;
+}
+
+.bottom p{
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.bottom > h1{
+    font-size: 40px;
+    margin-bottom: 35px;
+    color:#001561;
+    position: relative;
+    text-align: center;
+}
+
+.bottom > h1::after{
+    content:'';
+    width:140px;
+    height:4px;
+    border-radius:3px;
+    background: #001561;
+    position:absolute;
+    bottom: -20%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+pre{
+    white-space: pre-wrap;
+    line-height: 25px;  
+    color:darkblue; 
+    font-size: 15px;
+    font-weight: lighter;
+    padding-right:15px; 
+}
+
+#map{
+    width: 89%; 
+    height: 350px;
+    margin-top:10px;
+    margin-bottom:10px;
+}

@@ -1,0 +1,249 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width:100%;
+    min-width:100vh;
+    min-height:66vh;
+    background-image:linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),url(/static/images/background.jpg);
+    background-position: center;
+    background-size:cover;
+    position:relative;
+}
+
+.nav-link-button .button{
+    width:120px;
+    height:35px;
+    padding:1% 5%;
+    margin-right:10px;
+    background:#3957ff;
+    border:none;
+    color:white;
+    border-radius:5px;
+    text-decoration: none;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    cursor:pointer;
+}
+
+.nav-link-button .button:hover{
+    background: #5f77fd;
+}
+
+.dropdown-content{
+    left:62%;
+    -webkit-margin-start:22.5%;
+    display: none;
+    position:absolute;
+    background-color: #f9f9f9;
+    width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+  
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.display{
+    display: block;
+}
+
+nav img{
+    width: 350px;
+    height: 125px;
+}
+
+.adjust{
+    padding:5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adjust button img{
+    width: 20px;
+    height: 20px;
+}
+
+.adjust button{
+    border:none;
+    width:200px;
+    height:60px;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    cursor:pointer;
+    margin-left: 35%;
+    font-size: 20px;
+    transition: all 0.7s;
+}
+
+.adjust button:hover{
+    background:rgb(209, 209, 209);
+    transform: scale(1.05);
+    -webkit-transform:scale(1.05);
+}
+
+.adjust button:active{
+    background:rgb(161, 161, 161);
+}
+
+.search-bar{ 
+    width: 700px;
+    background: rgba(1, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding:10px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px) saturate(90%);
+}
+
+.search-bar input{
+    background:transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+.search-bar img{
+    border:none;
+    border-radius:50%;
+    width:60px;
+    height:60px;
+    background:#58629b;
+}
+
+.preferences{
+    text-align: left;
+    padding:20px 30px;
+}
+
+.preferences .box{
+    max-height: 400px;
+    min-width: 700px;
+    background: rgba(1, 0, 0, 0.2);
+    display: block;
+    padding:8px 15px;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+.preferences .box::-webkit-scrollbar {
+    display: none;
+}
+
+.preferences .box ul li{
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    margin-left:5%;
+    margin-bottom: 3%;
+    margin-right:1%;  
+}
+
+.preferences .box ul li .boxes{
+    width:370px;
+    height: 270px;
+    background: white;
+    float:left;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.boxes .infor img{
+    width:30%;
+    height:20%;
+    margin-left:5%;
+    margin-top:2%;
+}
+
+.boxes .infor h2{
+    color:rgb(89, 139, 231);
+    font-size:20px;
+    margin-left:5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.boxes .infor h3{
+    color:rgb(0, 0, 0);
+    font-size:16px;
+    margin-left:5%;
+    font-family:'Times New Roman', Times, serif;
+    margin-top:2%;
+    font-weight: lighter;
+}
+
+.boxes .infor h4{
+    color:rgb(0, 0, 0);
+    font-size:15px;
+    margin-left:5%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.boxes .infor h5{
+    color:rgb(128, 0, 255);
+    font-size:15px;
+    margin-left:5%;
+    margin-top:5%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.boxes .infor p{
+    color:rgb(255, 255, 255);
+    width:20%;
+    padding:1% 5%;
+    text-align: center;
+    font-size:16px;
+    background-color: rgb(23, 73, 23);
+    border-radius:10px;
+    margin-left:5%;
+    margin-top:2%;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.preferences h1{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:27px;
+    text-align: center;
+}
+
+.user{
+    font-size:20px;
+    padding:2% 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000000;
+}
+
+@media screen and (max-width:900px){
+    .user{
+        font-size:20px;
+        padding:5px;
+        margin-bottom:2px;
+        margin-left:15%;
+    }
+
+    .preferences .box ul li .boxes{
+        width:285px;
+        height: 270px;
+    }
+
+    .dropdown-content{
+        margin-left:17%;
+    }
+}
